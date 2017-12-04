@@ -7,6 +7,16 @@ var viewModel = function(){
     this.incrementCounter = function() {
         this.clickCount(this.clickCount() + 1);
     };
+
+    this.catLevel = ko.computed(function(){
+        if(this.clickCount() >= 15) {
+            return "Wizard";
+        } else if (this.clickCount() >= 5) {
+            return "Advanced Beginner";
+        } else {
+            return "noob";
+        }
+    }, this);
 }
 
 ko.applyBindings(new viewModel());
